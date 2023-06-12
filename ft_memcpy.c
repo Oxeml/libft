@@ -1,28 +1,52 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/07 21:43:39 by oemelyan          #+#    #+#             */
+/*   Updated: 2023/04/07 22:37:57 by oemelyan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void *ft_memcpy (void *dst, const void *src, size_t n)
+#include "libft.h"
+#include <stdio.h>
+#include <string.h>
+
+// should  return string
+void *ft_memcpy(void *str_dest, const void *str_src, size_t n)
 {
-	size_t	i;
+	char	*dest;
+	char	*src;
+	unsigned int i;
 
-	if (!dst && !src)
-		return(NULL);
+	dest = (char *) str_dest;
+	src = (char *) str_src;
+
 	i = 0;
 	while (i < n)
 	{
-		((unsigned char*)dst)[i] = ((unsigned char*)src)[i];
+		dest[i] = src[i];
 		i++;
 	}
-	return (dst);	
-
+	return (str_dest);
 }
 
-int main ()
-{
-	char *dst;
-	dst = malloc(5);
+// int main (void)
+// {
+// 	char str_dest[15] = "";
+// 	char str_src[15] = "";
+// 	size_t len;
 
-	ft_memcpy(dst, "some text", 3);
-	dst[3] = '\0';
-	printf("%s\n", dst);
-	free(dst);
-	return (0);
-}
+// 	len = 5;
+// 	ft_memcpy((void *) str_dest + 5, (const void *) str_src, len);
+// 	puts(str_dest);
+
+// 	char str1[15];
+// 	memcpy(str1, str1+5, len);
+// 	puts(str1);
+
+
+// 	return (0);
+// }

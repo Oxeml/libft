@@ -1,39 +1,45 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+//#include "libft.h"
 
-char *ft_substr (char const *s, unsigned int start, size_t len)
+char *ft_strtrim(char const *s1, char const *set)
 {
-        char *sub_str;
-        size_t i;
-        size_t j;
+	char* new_string[];
+	unsigned int i;
+	unsigned int new_string_length;
+	unsigned int src_lenght;
+	unsigned int the_last;
 
-        if (!s ||!(sub_str = (char*)malloc(len + 1)))
-                return (NULL);
-        i = start;
-        j = 0;
-        while (*s && j < len)
-                sub_str[j++] = s[i++];
-        sub_str[j] = '\0';
-        return (sub_str);
-}
+	src_length = ft_strlen(s1);
+	i = 0;
+	//to check whether there are set chars at the beginning of the string
+	if (str[i] == set[j])
+	   i++;
 
-char *ft_strtrim (char const *s1, char const *set)
-{
-	size_t	i;
-
-	if (!s1 || !set)
-		return (0);
-	while (*s1 && strchr(set, *s1))
-		s1++;
-	i = strlen (s1);
-	while (i && strchr (set, s1[i]))
-		i--;
-	return (ft_substr(s1, 0, i + 1));
+	j = 0;
+	//to check whether there are set chars at the end of the string
+	if (str[len - 1] == set[j])
+		len--;	
+	
+	//wdim to delete - not to copy??
+	new_string_length = src_length - i - len;
+	new_string = malloc(new_string_length * 1);
+	if (!new_string)
+		return(NULL);
+	the_last = 0;
+	while (the_last < new_string_length)
+	{
+		new_string[the_last] = s1[the_last];
+		the_last++;
+	}
+	return(new_string);
+	
 }
 
 int main ()
 {
-	printf("%s\n", ft_strtrim("aaoohello", "ao"));
-	return (0);
+	char src[] = "*Hello*/";
+	char set[] = "*9/";
+
+	printf("%s\n", ft_strtrim(src, set));
+	return(0);
 }

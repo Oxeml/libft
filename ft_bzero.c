@@ -1,30 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+#include "libft.h"
 
-void *assign (void *s, int c, size_t n)
+void ft_bzero(void *str, size_t n)
 {
-	unsigned char	*ch;
+	unsigned int i;
+	char *ptr;
 
-	ch = s;
-	while (n > 0)
+	ptr = (char*) str;
+	i = 0;
+	while (i < n)
 	{
-		*ch = c;
-		ch++;
-		n--;
+		ptr[i] = 0;
+		i++;
 	}
-	return (s);
 }
 
-void *ft_bzero (void *s, size_t n)
-{
-	assign (s, '\0', n);
-	return (s);
-}
+// int main (void)
+// {
+// 	char symb;
+// 	size_t len;
+// 	char str[15] = "hello you";
 
-/*
-int main ()
-{
-	unsigned char	string[10];
-	ft_bzero(string, 5);
-	printf("%s\n", string);
-	return (0);
-}
-*/
+// 	len = 5;
+// 	ft_bzero(str, len);
+// 	puts(str);
+
+// 	return (0);
+// }

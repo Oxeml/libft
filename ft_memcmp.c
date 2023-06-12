@@ -1,32 +1,59 @@
-#include "libft.h"
-//#include <stdio.h>
-//#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/07 21:43:24 by oemelyan          #+#    #+#             */
+/*   Updated: 2023/04/07 23:14:21 by oemelyan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_memcmp(const void *s1, const void *s2, size_t n)
+#include "libft.h"
+#include <stdio.h>
+#include <string.h>
+
+int ft_memcmp(const void *str3, const void *str4, size_t n)
 {
+	size_t	i;
 	unsigned char *str1;
 	unsigned char *str2;
 
-	str1 = (unsigned char*)s1;
-	str2 = (unsigned char*)s2;
-
-	while (n != 0)
+	str1 = (unsigned char *)str3;
+	str2 = (unsigned char *)str4;
+	i = 0;
+	if (n == 0)
+		return (0);
+		// && (str1[i] || str2[i])
+	while (i < n)
 	{
-		if (*str1 != *str2)
-			return (*str1 - *str2);
-		str1++;
-		str2++;
-		n--;
+		if (str1[i] != str2[i]) 
+			return(str1[i] - str2[i]);
+		i++;
 	}
 	return (0);
 }
-/*
-int main ()
-{
-	char str1[] = "hello you";
-	char str2[] = "hello you";
 
-	printf("%d\n", ft_memcmp(str1, str2, 5));
-	return (0);
-}
-*/
+// int main (void)
+// {
+// 	char str1[10] = "hello";
+// 	char str2[10] = "hellooo";
+// 	size_t n;
+// 	//const void *ptr1;
+// 	//const void *ptr2;
+// 	int res;
+// 	int check;
+
+// 	res = ft_memcmp(str1, str2, 4);
+// 	printf("the result is: %d\n", res);
+// 	check = memcmp(str1, str2, 4);
+// 	printf("the check is: %d\n", check);
+// 	return (0);
+// }
+
+
+
+	
+
+	

@@ -1,21 +1,35 @@
-#include "libft.h>
+#include <stdio.h>
+#include <string.h>
+#include "libft.h"
 
 char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t i;
-	size_t j;
-
-	i = 0;
-	if (*needle == '\0')
-		return ((char*)haystack);
-	while (i < len && haystack [i] != '\0')
+	size_t needle_len;
+	needle_len = ft_strlen(needle);
+	if (!needle_len)
+		return ((char*) haystack);
+	while (*haystack && needle_len <= len)
 	{
-		j = 0;
-		while (needle[j] && haystack[i + j] == needle[j] && (i + j < len))
-			j++;
-		if (needle[j] == '\0')
-			return ((char*) &haystack[i]);
-		i++;
+		if (*haystack == *needle && ft_strncmp((char *)haystack, (char *) needle, (unsigned int) needle_len) == 0)
+			return ((char *)haystack);
+		haystack++;
+		len--;
 	}
 	return (0);
 }
+
+/*int main(void)
+{
+	char big_string[] = "Don't know anything";
+	char small_string[] = "know";
+
+	char *ptr;
+	char *ptr1;
+
+	ptr1 = ft_strnstr(big_string, small_string, 15);
+	printf("my function return is: %s\n", ptr1);	
+	
+	ptr = strnstr(big_string, small_string, 15);
+	printf("the original function return is: %s\n", ptr);
+	return(0);
+}*/

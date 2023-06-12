@@ -1,32 +1,43 @@
-//#include <stdio.h>
-//#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/07 21:43:59 by oemelyan          #+#    #+#             */
+/*   Updated: 2023/04/07 21:44:02 by oemelyan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void *ft_memset (void *s, int c, size_t len)
+#include "libft.h"
+#include <stdio.h>
+#include <string.h>
+
+void *ft_memset(void *str, int num, size_t n)
 {
-	unsigned char	*ch;
+	unsigned int i;
+	char *ptr;
 
-	ch = s;	
-	while (len > 0)
+	ptr = (char *) str;
+	i = 0;
+	while (i < n)
 	{
-		*ch = c;
-		ch++;
-		len--;
+		ptr[i] = num;
+		i++;
 	}
-	return (s);
+	return (ptr);
 }
 
-/*int main ()
-{
-	char *s;
-	s = malloc(6);
+// int main (void)
+// {
+// 	char symb;
+// 	size_t len;
+// 	char str[15] = "Hello you";
 
-	if (!s)
-		return (1);
-
-	ft_memset(s,'a', 5);
-	s[5] = '\0';
-	printf("%s\n",s);
-	free(s);
-	return (0);
-}
-*/
+// 	len = 8;
+// 	symb = 'a';
+// 	ft_memset(str, symb, len);
+// 	puts(str);
+// 	return (0);
+// }

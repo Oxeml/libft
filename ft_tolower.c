@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/07 21:44:31 by oemelyan          #+#    #+#             */
-/*   Updated: 2023/04/07 21:44:34 by oemelyan         ###   ########.fr       */
+/*   Created: 2023/04/07 21:44:58 by oemelyan          #+#    #+#             */
+/*   Updated: 2023/04/14 22:12:51 by oemelyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
+#include <ctype.h>
 
-size_t ft_strlen(const char *str)
+int ft_tolower (int c)
 {
-	size_t i;
-
-	i = 0;
-	while (str[i] != 0)
-		i++;
-	return (i);
+	if (c >= 65 && c <= 90)
+	{
+		c += 32;
+	}
+	return (c);
 }
-
-/*int main(void)
-{
-	char arr[20] = "Hello";
-	ft_strlen(arr);
-	printf("%d\n", ft_strlen(arr));
-	return(0);
-}
-*/

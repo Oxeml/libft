@@ -1,34 +1,63 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/07 21:43:50 by oemelyan          #+#    #+#             */
+/*   Updated: 2023/04/07 21:43:52 by oemelyan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 #include <stdio.h>
+#include <string.h>
 
-void *ft_memmove(void *dst, const void *src, size_t len)
+void *ft_memmove(void *str_dest, const void *str_src, size_t len)
 {
-	unsigned char	*d;
-	unsigned char	*s;
+	int i;
+	char *dest;
+	char *src;
+	char	*res;
 
-	d = dst;
-	s = (unsigned char*) src;
-	if (!dst && !src)
+	
+	dest = (char*)str_dest;
+	res = dest;
+	src = (char*)str_src;
+	if (src == 0 && dest == 0)
+	{
 		return (NULL);
-	if (dst > src)
+	}
+	i = 0;
+	if (dest <= src)
 	{
 		while (len--)
-			d[len] = s[len];
+		{
+			*dest++ = *src++;
+		}
 	}
-
-	else
+	if (src < dest)
 	{
+			dest += len;
+			src += len;		
 		while (len--)
-			*d++ = *s++;
+			*--dest = *--src;	
 	}
-	return (dst);
+	return (res);
 }
-/*
-int main ()
+	
+
+/*int main (void)
 {
-	char source[20] = "it's so hard";
-	char destin[20];
-	ft_memmove (destin, source, 6);
-	printf("%s\n", destin);
+	char str_src[15] = "aaaaabbbbbcc";
+	
+	ft_memmove(str_src, str_src + 5, 7);
+	puts(str_src);
+	char str1[15] = "aaaaaabbbbbcc";
+	memmove(str1, str1 + 5, 7);
+	puts(str1);
+	
 	return (0);
 }
 */

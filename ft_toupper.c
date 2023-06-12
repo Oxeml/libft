@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/07 21:44:31 by oemelyan          #+#    #+#             */
-/*   Updated: 2023/04/07 21:44:34 by oemelyan         ###   ########.fr       */
+/*   Created: 2023/03/26 04:43:13 by oemelyan          #+#    #+#             */
+/*   Updated: 2023/04/07 21:45:09 by oemelyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+// #include <stdio.h>
+// #include <ctype.h>
 
-size_t ft_strlen(const char *str)
+int ft_toupper(int c)
 {
-	size_t i;
+	if (c >= 97 && c <= 122)
+	{
+		c -= 32;
+	}
+	
+	return (c);
 
-	i = 0;
-	while (str[i] != 0)
-		i++;
-	return (i);
 }
+// int main(void)
+// {
+// 	char c;
 
-/*int main(void)
-{
-	char arr[20] = "Hello";
-	ft_strlen(arr);
-	printf("%d\n", ft_strlen(arr));
-	return(0);
-}
-*/
+// 	c = 'T';
+// 	printf("my func output for the lowercase input: %c\n", ft_toupper(c));
+// 	printf("library output for the lowercase input: %c\n", toupper(c));
+
+// 	return (0);
+// }

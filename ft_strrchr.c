@@ -1,36 +1,54 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/07 21:44:50 by oemelyan          #+#    #+#             */
+/*   Updated: 2023/04/07 21:44:53 by oemelyan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
-#include <stddef.h>
+#include "libft.h"
+//#include <string.h>
 
-size_t ft_strlen (const char *s)
+/*size_t ft_strlen(const char *str)
 {
-	size_t	counter;
+	size_t i;
+
+	i = 0;
+	while (str[i] != 0)
+		i++;
+	return (i);
+}*/
+char *ft_strrchr(const char *s, int c)
+{
+	int i;
+	char *ret;
+
+	i = ft_strlen(s);
+	ret = (char*)s;
+	while (ret[i] != c)
+			i--;
+	if (ret[i] == c)
+		return(ret + i);
+	if (ret[i] == '\0' && c == '\0')
+		   return(ret + i);
+	else
+		return(NULL);
+}
+		
 	
-	while (*s)
-		counter++;
-	return (counter);
-}
-
-
-char *ft_strrchr (const char *s, int c)
+/*int main(void)
 {
-	int	len;
-	char	ch;
+	const char str[] = "hi i am here";
+	const char ch = 'i';
+	char *ret;
 
-	ch = c;
-	len = ft_strlen (s);
-
-	while (len >= 0)
-	{
-		if (s[len] == ch)
-			return ((char *)(s + len));
-		len --;
-	}
-	return (NULL);
-}
-
-int main (void)
-{
-	char a = 'e';
-	printf("%s\n", ft_strrchr ("Some text", a));
-	return (0);
-}
+	ret = ft_strrchr(str, ch);
+	printf("the last occurence of |%c| is |%s|", ch, ret);
+	printf("\n the last occurence original function of |%c| is |%s|", ch, strrchr(str, ch));
+	return(0);
+}*/
