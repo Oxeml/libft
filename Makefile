@@ -1,28 +1,41 @@
-.PHONY:				all clean fclean re
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/04/04 13:23:49 by oemelyan          #+#    #+#              #
+#    Updated: 2023/04/15 14:28:52 by oemelyan         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-SRCS			=	ft_isalpha ft_isalnum.c ft_isdigit ft_isascii ft_isprint/
-				ft_strlen ft_memset ft_bzero ft_memcpy ft_memmove
+NAME = libft.a
 
-OBJS				= $(SRCS:.c = o)
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+RM = rm -f
 
-CC				= gcc
+SRCS = ft_isalnum.c ft_isalpha.c ft_isdigit.c ft_isascii.c ft_isprint.c ft_strlen.c \
+		ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c \
+		ft_strchr.c ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c
 
-RM				= rm -f
+OBJS = $(SRCS:.c=.o)
 
-CFLAGS				= -Wall -Wextra -Werror
+all: $(NAME)
 
-NAME				=libft.a
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
-all:				$(NAME)
+$(OBJS): $(SRCS)
+	$(CC) $(CFLAGS) -c $(SRCS)
 
-$ NAME:				$(OBJS)
-				ar rcs $(NAME) $(OBJS)
 clean:
-				$ (RM) $(NAME)
+	$(RM) $(OBJS)
 
-re:				fclean $(NAME)
+fclean:		clean
+	$(RM) $(NAME)
 
-fclean:				clean
-				$(RM) $(NAME)
+re: fclean all
 
-
+.PHONY: all	clean fclean re
