@@ -6,14 +6,14 @@
 /*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 03:24:13 by oemelyan          #+#    #+#             */
-/*   Updated: 2023/03/29 15:20:13 by oemelyan         ###   ########.fr       */
+/*   Updated: 2023/06/13 01:34:58 by oemelyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 // #include <stdio.h>
 
-int ft_isprint(int c)
+int	ft_isprint(int c)
 {
 	if (c >= 32 && c < 127)
 		return (1);

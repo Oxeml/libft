@@ -6,23 +6,19 @@
 /*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 04:43:13 by oemelyan          #+#    #+#             */
-/*   Updated: 2023/04/07 21:45:09 by oemelyan         ###   ########.fr       */
+/*   Updated: 2023/06/13 23:39:10 by oemelyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include <stdio.h>
-// #include <ctype.h>
 
-int ft_toupper(int c)
+int	ft_toupper(int c)
 {
 	if (c >= 97 && c <= 122)
 	{
 		c -= 32;
 	}
-	
 	return (c);
-
 }
 // int main(void)
 // {

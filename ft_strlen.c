@@ -6,16 +6,15 @@
 /*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 21:44:31 by oemelyan          #+#    #+#             */
-/*   Updated: 2023/04/07 21:44:34 by oemelyan         ###   ########.fr       */
+/*   Updated: 2023/06/13 23:34:33 by oemelyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-size_t ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (str[i] != 0)

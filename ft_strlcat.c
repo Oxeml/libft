@@ -6,33 +6,20 @@
 /*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 23:02:01 by oemelyan          #+#    #+#             */
-/*   Updated: 2023/03/29 15:42:28 by oemelyan         ###   ########.fr       */
+/*   Updated: 2023/06/13 23:34:19 by oemelyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
-/*size_t ft_strlen(const char *str)
-{
- 	int i;
-
- 	i = 0;
- 	while (str[i] != 0)
- 		i++;
-	return i;
-}*/
-
-size_t ft_strlcat (char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	dst_init_len;
 	size_t	src_len;
-	
+
 	dst_init_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
-	
 	i = 0;
 	if (*src == '\0')
 		return (dst_init_len);
@@ -55,10 +42,8 @@ size_t ft_strlcat (char *dst, const char *src, size_t dstsize)
 // {
 // 	// char src_1[25] = "so tired";
 // 	// char dst_1[15] = "ohoh ";
-	
 // 	// char src_2[14] = "so tired";
 // 	// char dst_2[7] = "ohoh ";
-	
 // 	// size_t	expected_len1;
 // 	// size_t	expected_len2;
 
@@ -68,7 +53,6 @@ size_t ft_strlcat (char *dst, const char *src, size_t dstsize)
 
 // 	// printf("c library result is: %lu\n", strlcat(dst_1, src_1, 3));
 // 	// puts(dst_1);
-	
 // 	// expected_len2 = ft_strlcat(dst_2, src_2, 6);
 // 	// printf("my ft result: %lu\n", expected_len2);
 // 	// puts (dst_2);

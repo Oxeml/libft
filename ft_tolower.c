@@ -6,15 +6,13 @@
 /*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 21:44:58 by oemelyan          #+#    #+#             */
-/*   Updated: 2023/04/14 22:12:51 by oemelyan         ###   ########.fr       */
+/*   Updated: 2023/06/13 23:39:16 by oemelyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <ctype.h>
 
-int ft_tolower (int c)
+int	ft_tolower(int c)
 {
 	if (c >= 65 && c <= 90)
 	{

@@ -6,12 +6,11 @@
 /*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 21:44:42 by oemelyan          #+#    #+#             */
-/*   Updated: 2023/06/12 14:26:50 by oemelyan         ###   ########.fr       */
+/*   Updated: 2023/06/13 23:35:22 by oemelyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
