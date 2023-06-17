@@ -6,7 +6,7 @@
 /*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 21:44:50 by oemelyan          #+#    #+#             */
-/*   Updated: 2023/06/13 23:38:25 by oemelyan         ###   ########.fr       */
+/*   Updated: 2023/06/16 18:47:25 by oemelyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,25 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int			i;
-	char		*ret;
+	int		i;
 
 	i = ft_strlen(s);
-	ret = (char *)s;
-	while (ret[i] != c)
-			i--;
-	if (ret[i] == c)
-		return (ret + i);
-	if (ret[i] == '\0' && c == '\0')
-		return (ret + i);
-	else
-		return (NULL);
+	while (i >= 0)
+	{
+		if (s[i] == (char) c)
+			return ((char *)&s[i]);	
+		i--;
+	}
+	return (NULL);
 }
 
-/*int main(void)
-{
-	const char str[] = "hi i am here";
-	const char ch = 'i';
-	char *ret;
+// int main(void)
+// {
+// 	const char str[] = "teste";
+// 	const char ch = 'e';
+// 	char *ret;
 
-	ret = ft_strrchr(str, ch);
-	printf("the last occurence of |%c| is |%s|", ch, ret);
-	return(0);
-}*/
+// 	ret = ft_strrchr(str, ch);
+// 	printf("the last occurence of |%c| is |%s|", ch, ret);
+// 	return(0);
+// }

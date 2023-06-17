@@ -6,12 +6,12 @@
 /*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 02:27:39 by oemelyan          #+#    #+#             */
-/*   Updated: 2023/06/13 23:33:52 by oemelyan         ###   ########.fr       */
+/*   Updated: 2023/06/14 10:34:54 by oemelyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
-#include <stdlib.h>
+#include "libft.h"
+//#include <stdlib.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

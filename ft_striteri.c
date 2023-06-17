@@ -6,7 +6,7 @@
 /*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 02:26:03 by oemelyan          #+#    #+#             */
-/*   Updated: 2023/06/13 23:46:02 by oemelyan         ###   ########.fr       */
+/*   Updated: 2023/06/15 21:52:35 by oemelyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,17 @@
 // #include <stdlib.h>
 // #include <string.h>
 
-char	function_f(unsigned int c, char a)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	return ((char)(a + c - c));
-}
-
-char	*ft_striteri(char const *s, char (*f)(unsigned int c, char *))
-{
-	char			*string;
 	unsigned int	i;
 
-	string = (char *)s;
 	i = 0;
-	while (string[i])
+	while (s[i])
 	{
-		string[i] = function_f(i, s[i]);
+		f(i, &s[i]);
 		i++;
 	}
-	return (string);
+	// return (s);
 }
 
 // int main()

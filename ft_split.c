@@ -5,92 +5,121 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/13 13:12:51 by oemelyan          #+#    #+#             */
-/*   Updated: 2023/06/13 19:32:59 by oemelyan         ###   ########.fr       */
+/*   Created: 2023/06/17 13:46:09 by oemelyan          #+#    #+#             */
+/*   Updated: 2023/06/17 13:46:11 by oemelyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-//#include "libft.h"
-
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_count_words(char const *str, char delimiter)
 {
-	int substr_counter;
-	
+	int			substr_counter;
+
 	substr_counter = 0;
 	while (*str)
 	{
-	if (*str != delimiter)
-	{
-		substr_counter++;
-		while (*str && *str != delimiter)
+		if (*str != delimiter)
+		{
+			substr_counter++;
+			while (*str && *str != delimiter)
+				str++;
+		}
+		else
 			str++;
-	}
-	else
-		str++;
 	}
 	return (substr_counter);
 }
 
 char	*ft_strdup2(char *str, int start, int end)
 {
-	// if (ft_strlen(str) < end)
-	// return (NULL);
 	int			size;
-	int			start;
-	int			end;
-	int			is_there_a_word
 	char		*word;
 	int			i;
-	
-	// to determine start and end point
-	is_there_a_word = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == delimiter)
-			i++;
-		if (str[i] != delimiter && is_there_a_word == 0)
-		{
-			is_there_a_word = 1;
-			start = i;
-			while (str[i] != delimiter)
-				i++;
-			end = i;
-		
-		}
-		
-	}
+
 	size = end - start + 1;
 	word = malloc(sizeof(char) * size);
-	if (word == NULL)
+	if (!word)
 		return (NULL);
 	i = 0;
 	while (start != end)
 	{
-		str[i] = str[start];
+		word[i] = str[start];
 		i++;
 		start++;
 	}
-	str[i] = '\0';
+	word[i] = '\0';
 	return (word);
 }
 
-char **ft_split(char const *s, char c)
+void	free_all(char **array)
 {
-	char			**double_array;
-	int				i;
+	int	i;
 
-	i = ft_count_words(str, ' ');
-	double_array = malloc(sizeof(char *) * (i + 1));
-	double_array[i] = NULL;
-	printf("The quantity of substr is: %d\n", i);
-	double_array[index] = ft_strdup2();
-	return (0);
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
+	array = NULL;
 }
-int main ()
+
+char	**split_split(char const *s, int index, int start, char c)
 {
-	char *str = "  Hello    how are you  ";
-	ft_split (str, ' ');
+	char	**double_array;
+	int		i;
+
+	i = ft_count_words(s, c);
+	double_array = malloc(sizeof(char *) * (i + 1));
+	if (!double_array)
+		return (NULL);
+	double_array[i] = NULL;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] != c && start == 0)
+		{
+			start = i;
+			while (s[i] != c && s[i] != '\0')
+				i++;
+			double_array[index] = ft_strdup2((char *)s, start, i);
+			if (!double_array[index++])
+				return (free_all(double_array), NULL);
+			start = 0;
+		}
+		else
+			i++;
+	}
+	return (double_array);
 }
+
+char	**ft_split(char const *s, char c)
+{
+	char	**double_array;
+	int		index;
+	int		start;
+
+	index = 0;
+	start = 0;
+	double_array = split_split(s, index, start, c);
+	return (double_array);
+}
+
+// int	main()
+// {
+// 	char *str = "  Hello    how are you  ";
+// 	char **result = ft_split(str, ' ');
+
+// 	int i = 0;
+// 	while (result[i])
+// 	{
+// 		printf("%s\n", result[i]);
+// 		free(result[i]);
+// 		i++;
+// 	}
+// 	free(result);
+
+// 	return (0);
+// }

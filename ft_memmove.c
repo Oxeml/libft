@@ -6,7 +6,7 @@
 /*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 21:43:50 by oemelyan          #+#    #+#             */
-/*   Updated: 2023/06/13 23:31:40 by oemelyan         ###   ########.fr       */
+/*   Updated: 2023/06/16 17:10:16 by oemelyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,37 @@
 
 static	char	*three_am_func(char *dest, char *src, size_t len)
 {
-	int			i;
+	char		*d;
+	char		*s;
 
-	i = 0;
-	if (dest <= src)
+	d = (char *)dest;
+	s = src;
+	if (d < s)
 	{
 		while (len--)
 		{
-			*dest++ = *src++;
+			*d++ = *s++;
 		}
 	}
-	if (src < dest)
+	if (s <= d)
 	{
-			dest += len;
-			src += len;
+		d += len;
+		s += len;
 		while (len--)
-			*--dest = *--src;
+		{
+			*--d = *--s;
+		}
 	}
 	return (dest);
 }
 
-void	*ft_memmove(void *str_dest, const void *str_src, size_t len)
+void	*ft_memmove(void *dest, const void *src, size_t len)
 {
-	char		*dest;
-	char		*src;
-
-	dest = (char *)str_dest;
-	src = (char *)str_src;
 	if (src == 0 && dest == 0)
 	{
 		return (NULL);
 	}
-	return (three_am_func(dest, src, len));
+	return (three_am_func(dest, (char *)src, len));
 }
 
 // int main (void)
